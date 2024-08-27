@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 using System.Data;
+using System.IO;
 
 namespace WfaTiendaStock2_LAB3
 {
@@ -84,7 +85,7 @@ namespace WfaTiendaStock2_LAB3
                             return false;
                         }
                         // se actualizan los datos
-                        string query = "UPDATE Productos SET Nombre = @nombre,Descripcion = @descripcion,Precio = @precio,Stock = @Stock";
+                        string query = "UPDATE Productos SET Nombre = @nombre,Descripcion = @descripcion,Precio = @precio,Stock = @stock WHERE Codigo = @codigo";
                         using (OleDbCommand comando = new OleDbCommand(query, conexion))
                         {
                             comando.Parameters.AddWithValue("@nombre", nombre);
@@ -165,6 +166,77 @@ namespace WfaTiendaStock2_LAB3
             catch (Exception e) {
                 MessageBox.Show("Error al ingresar nuevo producto." + e,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        // metodo para buscar un producto
+        public DataTable BuscarProductos(int? codigo = null,string nombre = null,string categoria = null) { 
+            DataTable dtProductos = new DataTable();
+            try {
+                using (OleDbConnection conexion = new OleDbConnection(ruta)) {
+                    conexion.Open();
+                    // el 1=1 ayuda a la adicion del where
+                    string query = "SELECT * FROM Productos WHERE 1=1";
+                    // validamos los ingresos
+                    if (codigo.HasValue) {
+                        query += " AND Codigo = @codigo";
+                        
+                    }
+                    if (!string.IsNullOrEmpty(nombre)) {
+                        query += " AND Nombre = @nombre";
+                    }
+                    if (!string.IsNullOrEmpty(categoria)) {
+                        query += " AND Categoria = @categoria";
+                    }
+                    // armamos la query y conectamos con base de datos mediante command
+                    using (OleDbCommand comando = new OleDbCommand(query,conexion)) {
+                        if (codigo.HasValue) {
+                            comando.Parameters.AddWithValue("@codigo",codigo.Value);
+                        }
+                        if (!string.IsNullOrEmpty(nombre)) {
+                            comando.Parameters.AddWithValue("@nombre","%" + nombre + "%");
+                        }
+                        if (!string.IsNullOrEmpty(categoria)) {
+                            comando.Parameters.AddWithValue("@categoria","%"+categoria+"%");
+                        }
+
+                        // adaptamos el codigo obtenido para poder mostrarlo en dgv
+                        using (OleDbDataAdapter adaptador = new OleDbDataAdapter(comando)) {
+                            adaptador.Fill(dtProductos);
+                        }
+                    }
+                }
+            }catch (Exception e)
+            {
+                MessageBox.Show("No se puede buscar el producto" + e,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            return dtProductos;
+
+
+
+        }
+
+        // metodo para generar el report
+        public void GenerarReporte(string rutaArchivo)
+        {
+            try {
+                // usamos el metodo para visualizar los productos y devolverlos
+                DataTable dtProductos = VerProductos();
+                using (StreamWriter sw = new StreamWriter(rutaArchivo))
+                {
+                    sw.WriteLine("Reporte de Productos");
+                    sw.WriteLine("====================");
+                    sw.WriteLine("Código\tNombre\tDescripción\tPrecio\tCategoría\tStock");
+
+                    foreach (DataRow row in dtProductos.Rows)
+                    {
+                        sw.WriteLine($"{row["Codigo"]}\t{row["Nombre"]}\t{row["Descripcion"]}\t{row["Precio"]}\t{row["Categoria"]}\t{row["Stock"]}");
+                    }
+                    MessageBox.Show("Reporte generado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }catch (Exception e)
+            {
+                MessageBox.Show("Problema al cargar el reporte." + e,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

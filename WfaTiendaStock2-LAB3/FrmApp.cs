@@ -64,5 +64,42 @@ namespace WfaTiendaStock2_LAB3
             FrmAgregar frmAgregar = new FrmAgregar();
             frmAgregar.Show();
         }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            int? codigo = null;
+            if (!string.IsNullOrEmpty(txtCodigo.Text)) {
+                if (int.TryParse(txtCodigo.Text, out int cod)) {
+                    codigo = cod;
+                }
+            }
+           // else {
+           //     MessageBox.Show("El codigo ingresado es invalido!","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                
+           // }
+
+            string nombre = string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text;
+            string categoria = string.IsNullOrEmpty(txtCategoria.Text) ? null : txtCategoria.Text;
+
+            // instanciamos la tabla y conectamos
+            DbProductos dbProductos = new DbProductos();
+            DataTable dtProductos = dbProductos.BuscarProductos(codigo,nombre,categoria);
+            if (dtProductos.Rows.Count > 0)
+            {
+                dgvProductos.DataSource = dtProductos;
+            }
+            else {
+                MessageBox.Show("No se encontraron los productos que intenta filtrar","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            DbProductos dbProductos = new DbProductos();
+            string ruta = @"C:\\Users\\admin\\Desktop";
+
+            dbProductos.GenerarReporte(ruta);
+        }
     }
 }
