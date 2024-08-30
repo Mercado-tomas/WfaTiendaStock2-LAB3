@@ -86,8 +86,10 @@ namespace WfaTiendaStock2_LAB3
                         }
                         // se actualizan los datos
                         string query = "UPDATE Productos SET Nombre = @nombre,Descripcion = @descripcion,Precio = @precio,Stock = @stock WHERE Codigo = @codigo";
+
                         using (OleDbCommand comando = new OleDbCommand(query, conexion))
                         {
+                            comando.Parameters.AddWithValue("@codigo", codigo);
                             comando.Parameters.AddWithValue("@nombre", nombre);
                             comando.Parameters.AddWithValue("@descripcion", descripcion);
                             comando.Parameters.AddWithValue("@precio", precio);
@@ -179,25 +181,25 @@ namespace WfaTiendaStock2_LAB3
                     string query = "SELECT * FROM Productos WHERE 1=1";
                     // validamos los ingresos
                     if (codigo.HasValue) {
-                        query += " AND Codigo = @codigo";
+                        query += " AND Codigo = ?";
                         
                     }
                     if (!string.IsNullOrEmpty(nombre)) {
-                        query += " AND Nombre = @nombre";
+                        query += " AND Nombre Like ?";
                     }
                     if (!string.IsNullOrEmpty(categoria)) {
-                        query += " AND Categoria = @categoria";
+                        query += " AND Categoria Like ?";
                     }
                     // armamos la query y conectamos con base de datos mediante command
                     using (OleDbCommand comando = new OleDbCommand(query,conexion)) {
                         if (codigo.HasValue) {
-                            comando.Parameters.AddWithValue("@codigo",codigo.Value);
+                            comando.Parameters.AddWithValue("?",codigo.Value);
                         }
                         if (!string.IsNullOrEmpty(nombre)) {
-                            comando.Parameters.AddWithValue("@nombre","%" + nombre + "%");
+                            comando.Parameters.AddWithValue("?","%" + nombre + "%");
                         }
                         if (!string.IsNullOrEmpty(categoria)) {
-                            comando.Parameters.AddWithValue("@categoria","%"+categoria+"%");
+                            comando.Parameters.AddWithValue("?","%"+categoria+"%");
                         }
 
                         // adaptamos el codigo obtenido para poder mostrarlo en dgv

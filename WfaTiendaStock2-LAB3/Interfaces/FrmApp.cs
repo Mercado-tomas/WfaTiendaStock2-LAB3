@@ -72,12 +72,13 @@ namespace WfaTiendaStock2_LAB3
                 if (int.TryParse(txtCodigo.Text, out int cod)) {
                     codigo = cod;
                 }
-            }
-           // else {
-           //     MessageBox.Show("El codigo ingresado es invalido!","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                
-           // }
+            } 
+            //}
+            //else {
+            //    MessageBox.Show("El codigo ingresado es invalido!","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
+            //     }
+            //codigo = string.IsNullOrEmpty(txtCodigo.Text) ? null : int.Parse(txtCodigo.Text);
             string nombre = string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text;
             string categoria = string.IsNullOrEmpty(txtCategoria.Text) ? null : txtCategoria.Text;
 
@@ -97,7 +98,7 @@ namespace WfaTiendaStock2_LAB3
         private void btnReporte_Click(object sender, EventArgs e)
         {
             DbProductos dbProductos = new DbProductos();
-            string ruta = @"C:\\Users\\admin\\Desktop";
+            string ruta = @".\Reporte";
 
             dbProductos.GenerarReporte(ruta);
         }
