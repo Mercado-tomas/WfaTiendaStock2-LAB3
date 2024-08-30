@@ -47,42 +47,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\DbProductos.cs" />
-    <Compile Include="FrmAgregar.cs">
+    <Compile Include="Interfaces\FrmAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAgregar.Designer.cs">
+    <Compile Include="Interfaces\FrmAgregar.Designer.cs">
       <DependentUpon>FrmAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEliminar.cs">
+    <Compile Include="Interfaces\FrmEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEliminar.Designer.cs">
+    <Compile Include="Interfaces\FrmEliminar.Designer.cs">
       <DependentUpon>FrmEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModificar.cs">
+    <Compile Include="Interfaces\FrmModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModificar.Designer.cs">
+    <Compile Include="Interfaces\FrmModificar.Designer.cs">
       <DependentUpon>FrmModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmApp.cs">
+    <Compile Include="Interfaces\FrmApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmApp.Designer.cs">
+    <Compile Include="Interfaces\FrmApp.Designer.cs">
       <DependentUpon>FrmApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAgregar.resx">
+    <EmbeddedResource Include="Interfaces\FrmAgregar.resx">
       <DependentUpon>FrmAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmApp.resx">
+    <EmbeddedResource Include="Interfaces\FrmApp.resx">
       <DependentUpon>FrmApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEliminar.resx">
+    <EmbeddedResource Include="Interfaces\FrmEliminar.resx">
       <DependentUpon>FrmEliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModificar.resx">
+    <EmbeddedResource Include="Interfaces\FrmModificar.resx">
       <DependentUpon>FrmModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

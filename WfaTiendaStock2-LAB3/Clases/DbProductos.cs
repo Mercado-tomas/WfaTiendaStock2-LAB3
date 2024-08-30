@@ -18,7 +18,7 @@ namespace WfaTiendaStock2_LAB3
         private string ruta;
         public DbProductos()
         {
-            ruta = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\Db-TiendStock2.accdb";
+            ruta = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\BaseDatos\Db-TiendStock2.accdb";
         }
 
         // metodo para comprobar el acceso a la base
