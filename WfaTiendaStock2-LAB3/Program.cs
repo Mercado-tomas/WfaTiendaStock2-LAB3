@@ -16,7 +16,7 @@ namespace WfaTiendaStock2_LAB3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmApp());
+            Application.Run(new FrmPrincipal());
         }
     }
 }

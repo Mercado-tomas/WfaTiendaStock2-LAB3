@@ -118,6 +118,7 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAgregar.Location = new System.Drawing.Point(9, 353);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(161, 23);
@@ -151,7 +152,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvProductos);
             this.Name = "FrmAgregar";
-            this.Text = "Form1";
+            this.Text = "Agregar Producto";
             this.Load += new System.EventHandler(this.FrmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
