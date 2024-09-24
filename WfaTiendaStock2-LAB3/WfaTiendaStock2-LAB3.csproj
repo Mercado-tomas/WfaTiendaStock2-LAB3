@@ -91,6 +91,9 @@
     <EmbeddedResource Include="Interfaces\FrmModificar.resx">
       <DependentUpon>FrmModificar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
