@@ -110,7 +110,7 @@ namespace WfaTiendaStock2_LAB3
                txtPrecio.Text = "";
                txtStock.Text = "";
            }*/
-
+            
 
 
 
