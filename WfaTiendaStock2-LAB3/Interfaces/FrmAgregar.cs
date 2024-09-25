@@ -19,8 +19,7 @@ namespace WfaTiendaStock2_LAB3
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FrmApp frmApp = new FrmApp();
-            frmApp.Show();
+            this.Close();
         }
 
         private void FrmAgregar_Load(object sender, EventArgs e)
