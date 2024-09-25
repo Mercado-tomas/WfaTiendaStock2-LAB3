@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WfaTiendaStock2_LAB3.Clases;
 
 namespace WfaTiendaStock2_LAB3
 {
@@ -25,11 +26,12 @@ namespace WfaTiendaStock2_LAB3
         private void FrmAgregar_Load(object sender, EventArgs e)
         {
             VerProductos();
-           
+
             Int32 ctg = 0;
             ctg = Convert.ToInt32(cmbCategoria.SelectedValue);
             DbCategoria ObjCategoria = new DbCategoria();
-            ObjCategoria.AgregarCategoria(dgvProductos);
+
+            ObjCategoria.AgregarCategoria(cmbCategoria);
         }
 
         public void VerProductos()
@@ -61,31 +63,63 @@ namespace WfaTiendaStock2_LAB3
             double precio;
             int stock;
 
-            if (!double.TryParse(txtPrecio.Text, out precio)) {
-                MessageBox.Show("Precio ingresado invalido!","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            if (!double.TryParse(txtPrecio.Text, out precio))
+            {
+                MessageBox.Show("Precio ingresado invalido!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!int.TryParse(txtStock.Text, out stock)) {
+            if (!int.TryParse(txtStock.Text, out stock))
+            {
                 MessageBox.Show("Nro de stock ingresado invalido!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            DbProductos emp = new DbProductos();
+            //emp.IdSocio = Convert.ToInt32( .Text);
+            emp.Descripcion = txtDescripcion.Text;
+            emp.IdCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
+            emp.Nombre = txtNombreProducto.Text;
+            emp.Stock = Convert.ToInt32(txtStock.Text);
+            emp.Precio = Convert.ToDouble(txtPrecio.Text);
 
-            DbProductos dbProductos = new DbProductos();
-            bool carga = dbProductos.AgregarProducto(nombre,descripcion,precio,stock);
-            if (carga)
-            {
-                MessageBox.Show("Producto agregado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                VerProductos(); 
-            }
-            else
-            {
-                MessageBox.Show("No se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+            emp.AgregarProducto();
+            VerProductos();
 
+            MessageBox.Show("Producto cargado exitosamente");
             txtNombreProducto.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
             txtStock.Text = "";
+
+        }
+
+            /*   DbProductos dbProductos = new DbProductos();
+               bool carga = dbProductos.AgregarProducto(nombre,descripcion,precio,stock,Convert.ToString(cmbCategoria));
+               if (carga)
+               {
+                   MessageBox.Show("Producto agregado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   VerProductos(); 
+               }
+               else
+               {
+                   MessageBox.Show("No se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               }
+
+               txtNombreProducto.Text = "";
+               txtDescripcion.Text = "";
+               txtPrecio.Text = "";
+               txtStock.Text = "";
+           }*/
+
+
+
+
+
+
+            private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+            {
+
+            }
         }
     }
-}
+

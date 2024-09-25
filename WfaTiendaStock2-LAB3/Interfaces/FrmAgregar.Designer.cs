@@ -184,6 +184,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(149, 21);
             this.cmbCategoria.TabIndex = 26;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // FrmAgregar
             // 
