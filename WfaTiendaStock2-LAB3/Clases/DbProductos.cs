@@ -152,7 +152,7 @@ namespace WfaTiendaStock2_LAB3
             {
                 using (OleDbConnection conexion = new OleDbConnection(ruta)) {
                     conexion.Open();
-                    string query = "INSERT INTO Productos(Nombre,Descripcion,Precio,Stock) VALUES (@nombre,@descripcion,@precio,@stock)";
+                    string query = "INSERT INTO Productos(Nombre,Descripción,Precio,Stock) VALUES (@nombre,@descripcion,@precio,@stock)";
 
                     using (OleDbCommand comando = new OleDbCommand(query,conexion)) {
                         comando.Parameters.AddWithValue("@nombre",nombre);

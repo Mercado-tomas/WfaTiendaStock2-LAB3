@@ -19,8 +19,7 @@ namespace WfaTiendaStock2_LAB3
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FrmApp frmApp = new FrmApp();
-            frmApp.Show();
+            this.Close();
         }
 
         private void FrmEliminar_Load(object sender, EventArgs e)
@@ -67,6 +66,16 @@ namespace WfaTiendaStock2_LAB3
                 MessageBox.Show("El código del producto no existe o no se pudo eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdProducto_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

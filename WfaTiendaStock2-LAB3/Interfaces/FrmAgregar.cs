@@ -25,6 +25,11 @@ namespace WfaTiendaStock2_LAB3
         private void FrmAgregar_Load(object sender, EventArgs e)
         {
             VerProductos();
+           
+            Int32 ctg = 0;
+            ctg = Convert.ToInt32(cmbCategoria.SelectedValue);
+            DbCategoria ObjCategoria = new DbCategoria();
+            ObjCategoria.AgregarCategoria(dgvProductos);
         }
 
         public void VerProductos()

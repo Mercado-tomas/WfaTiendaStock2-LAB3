@@ -19,8 +19,7 @@ namespace WfaTiendaStock2_LAB3
 
         private void btnPruebaDb_Click(object sender, EventArgs e)
         {
-            DbProductos dbProductos = new DbProductos();
-            dbProductos.VerificarConexion();
+          
         }
 
         private void FrmApp_Load(object sender, EventArgs e)
@@ -101,6 +100,16 @@ namespace WfaTiendaStock2_LAB3
             string ruta = @".\Reporte";
 
             dbProductos.GenerarReporte(ruta);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

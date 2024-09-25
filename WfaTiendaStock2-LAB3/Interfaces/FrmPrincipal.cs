@@ -57,5 +57,17 @@ namespace WfaTiendaStock2_LAB3.Interfaces
             Ventana.ShowDialog();
 
         }
+
+        private void btnPruebaDb_Click(object sender, EventArgs e)
+        {
+            DbProductos dbProductos = new DbProductos();
+            dbProductos.VerificarConexion();
+        }
+
+        private void buscarPorCategoríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBuscarCategoria Ventana = new FrmBuscarCategoria();
+            Ventana.ShowDialog();
+        }
     }
 }
