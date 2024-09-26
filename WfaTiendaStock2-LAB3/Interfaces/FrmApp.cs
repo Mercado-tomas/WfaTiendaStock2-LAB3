@@ -97,9 +97,10 @@ namespace WfaTiendaStock2_LAB3
         private void btnReporte_Click(object sender, EventArgs e)
         {
             DbProductos dbProductos = new DbProductos();
-            string ruta = @".\Reporte";
+            
 
-            dbProductos.GenerarReporte(ruta);
+            dbProductos.ReporteProductos();
+            MessageBox.Show("Reporte guardado exitosamente");
         }
 
         private void button1_Click(object sender, EventArgs e)

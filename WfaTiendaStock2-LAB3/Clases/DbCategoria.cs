@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WfaTiendaStock2_LAB3.Clases
 {
@@ -18,7 +19,45 @@ namespace WfaTiendaStock2_LAB3.Clases
         private OleDbCommand Comando = new OleDbCommand();
         private OleDbDataAdapter adaptador;
 
-        public void AgregarCategoria(ComboBox combo)
+       public string BuscarCategoria(Int32 IdCategoria)
+        {
+            try
+            {
+                Conexion.ConnectionString = CadenaConexión;
+                Conexion.Open();
+
+                Comando.Connection = Conexion;
+                Comando.CommandType = CommandType.TableDirect;
+                Comando.CommandText = tabla;
+                OleDbDataReader DR = Comando.ExecuteReader();
+
+                String resultadoBarrio = "";
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+
+                        if (DR.GetInt32(0) == IdCategoria)
+                        { 
+                            // le asigno el nombre de loa categoría a la variable
+                            resultadoBarrio = DR.GetString(1);
+                        }
+
+                    }
+                }
+
+                Conexion.Close();
+
+                return resultadoBarrio;
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+
+        }
+        public void AgregarCategoria(System.Windows.Forms.ComboBox combo)
         {
             try
             {

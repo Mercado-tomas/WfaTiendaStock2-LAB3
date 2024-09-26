@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using System.Data;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Threading;
+using WfaTiendaStock2_LAB3.Clases;
 
 namespace WfaTiendaStock2_LAB3
 {
@@ -28,6 +31,8 @@ namespace WfaTiendaStock2_LAB3
         private double precio;
         private Int32 stock;
         private Int32 categoria;
+
+        
 
 
         public Int32 IdSocio
@@ -315,7 +320,7 @@ namespace WfaTiendaStock2_LAB3
         }
 
         // metodo para generar el report
-        public void GenerarReporte(string rutaArchivo)
+        /*public void GenerarReporte(string rutaArchivo)
         {
             try {
                 // usamos el metodo para visualizar los productos y devolverlos
@@ -337,6 +342,60 @@ namespace WfaTiendaStock2_LAB3
                 MessageBox.Show("Problema al cargar el reporte." + e,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+        */
 
+        //Generar Reporte
+
+        public void ReporteProductos()
+        {
+            DbCategoria categoria = new DbCategoria();
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                commando.Connection = conexion;
+                commando.CommandType = CommandType.TableDirect;
+                commando.CommandText = Tabla;
+
+                adaptador = new OleDbDataAdapter(commando);
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
+
+                using (StreamWriter AD = new StreamWriter("ReporteProductos.csv", false, Encoding.UTF8))
+                {
+                    AD.WriteLine("Listado de Productos\n");
+                    AD.WriteLine("Codigo;Nombre;Descripción;Precio;Stock;Categoría");
+
+                    if (DS.Tables[Tabla].Rows.Count > 0)
+                    {
+                        foreach (DataRow fila in DS.Tables[Tabla].Rows)
+                        {
+                            string nombreCategoria = categoria.BuscarCategoria(Convert.ToInt32(fila["IdCategoria"]));
+     
+                            AD.Write(fila["Codigo"]);
+                            AD.Write(";");
+                            AD.Write(fila["Nombre"]);
+                            AD.Write(";");
+                            AD.Write(fila["Descripción"]);
+                            AD.Write(";");
+                            AD.Write(categoria);
+                            AD.Write(";");
+                            AD.Write(fila["Precio"]);
+                            AD.Write(";");
+                            AD.WriteLine(fila["Stock"]);
+
+
+                        }
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
     }    
    }
