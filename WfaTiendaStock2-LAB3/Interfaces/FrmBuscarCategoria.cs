@@ -89,6 +89,11 @@ namespace WfaTiendaStock2_LAB3.Interfaces
 
             dgvProductos.AutoGenerateColumns = true; // Desactiva la generación automática de columnas
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

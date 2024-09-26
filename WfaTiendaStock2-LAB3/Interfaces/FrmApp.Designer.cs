@@ -37,10 +37,8 @@
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnReporte = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,11 +53,11 @@
             this.btnVerProductos.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnVerProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerProductos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVerProductos.Location = new System.Drawing.Point(93, 304);
+            this.btnVerProductos.Location = new System.Drawing.Point(80, 304);
             this.btnVerProductos.Name = "btnVerProductos";
-            this.btnVerProductos.Size = new System.Drawing.Size(146, 23);
+            this.btnVerProductos.Size = new System.Drawing.Size(203, 23);
             this.btnVerProductos.TabIndex = 1;
-            this.btnVerProductos.Text = "Listar Productos";
+            this.btnVerProductos.Text = "Listar todos los Productos";
             this.btnVerProductos.UseVisualStyleBackColor = false;
             this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
             // 
@@ -133,17 +131,10 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(13, 72);
+            this.txtNombre.Location = new System.Drawing.Point(13, 90);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(181, 20);
             this.txtNombre.TabIndex = 8;
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(13, 111);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(181, 20);
-            this.txtCategoria.TabIndex = 9;
             // 
             // label2
             // 
@@ -157,31 +148,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 56);
+            this.label3.Location = new System.Drawing.Point(13, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "Nombre";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Categoria";
             // 
             // btnReporte
             // 
             this.btnReporte.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnReporte.Location = new System.Drawing.Point(448, 304);
+            this.btnReporte.Location = new System.Drawing.Point(371, 304);
             this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(146, 23);
+            this.btnReporte.Size = new System.Drawing.Size(204, 23);
             this.btnReporte.TabIndex = 14;
-            this.btnReporte.Text = "Generar Reporte";
+            this.btnReporte.Text = "Generar Reporte de Inventario";
             this.btnReporte.UseVisualStyleBackColor = false;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
@@ -201,10 +183,8 @@
             // 
             this.groupBox2.Controls.Add(this.btnBuscarProducto);
             this.groupBox2.Controls.Add(this.txtCodigo);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtNombre);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtCategoria);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(-1, 26);
             this.groupBox2.Name = "groupBox2";
@@ -218,7 +198,7 @@
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(653, 415);
+            this.button1.Location = new System.Drawing.Point(688, 416);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 23);
             this.button1.TabIndex = 17;
@@ -259,10 +239,8 @@
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;

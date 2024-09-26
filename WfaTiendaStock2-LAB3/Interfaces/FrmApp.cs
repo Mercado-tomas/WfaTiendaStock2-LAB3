@@ -79,11 +79,11 @@ namespace WfaTiendaStock2_LAB3
             //     }
             //codigo = string.IsNullOrEmpty(txtCodigo.Text) ? null : int.Parse(txtCodigo.Text);
             string nombre = string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text;
-            string categoria = string.IsNullOrEmpty(txtCategoria.Text) ? null : txtCategoria.Text;
+            //string categoria = string.IsNullOrEmpty(txtCategoria.Text) ? null : txtCategoria.Text;
 
             // instanciamos la tabla y conectamos
             DbProductos dbProductos = new DbProductos();
-            DataTable dtProductos = dbProductos.BuscarProductos(codigo,nombre,categoria);
+            DataTable dtProductos = dbProductos.BuscarProductos(codigo,nombre);
             if (dtProductos.Rows.Count > 0)
             {
                 dgvProductos.DataSource = dtProductos;
