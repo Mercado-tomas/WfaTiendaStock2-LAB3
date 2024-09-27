@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmApp));
             this.btnVerProductos = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
@@ -43,9 +46,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVerProductos
@@ -53,7 +58,7 @@
             this.btnVerProductos.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnVerProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerProductos.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnVerProductos.Location = new System.Drawing.Point(80, 304);
+            this.btnVerProductos.Location = new System.Drawing.Point(77, 236);
             this.btnVerProductos.Name = "btnVerProductos";
             this.btnVerProductos.Size = new System.Drawing.Size(203, 23);
             this.btnVerProductos.TabIndex = 1;
@@ -66,7 +71,7 @@
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(21, 19);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(608, 268);
+            this.dgvProductos.Size = new System.Drawing.Size(608, 211);
             this.dgvProductos.TabIndex = 2;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
@@ -75,7 +80,7 @@
             this.btnModifcar.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnModifcar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifcar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnModifcar.Location = new System.Drawing.Point(12, 330);
+            this.btnModifcar.Location = new System.Drawing.Point(15, 313);
             this.btnModifcar.Name = "btnModifcar";
             this.btnModifcar.Size = new System.Drawing.Size(172, 23);
             this.btnModifcar.TabIndex = 3;
@@ -88,7 +93,7 @@
             this.btnEliminarProducto.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnEliminarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarProducto.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(12, 371);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(15, 354);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(172, 23);
             this.btnEliminarProducto.TabIndex = 4;
@@ -101,7 +106,7 @@
             this.btnAgregar.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAgregar.Location = new System.Drawing.Point(12, 290);
+            this.btnAgregar.Location = new System.Drawing.Point(15, 273);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(172, 23);
             this.btnAgregar.TabIndex = 5;
@@ -114,9 +119,9 @@
             this.btnBuscarProducto.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnBuscarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProducto.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(16, 189);
+            this.btnBuscarProducto.Location = new System.Drawing.Point(16, 134);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(131, 23);
+            this.btnBuscarProducto.Size = new System.Drawing.Size(146, 23);
             this.btnBuscarProducto.TabIndex = 6;
             this.btnBuscarProducto.Text = "Buscar";
             this.btnBuscarProducto.UseVisualStyleBackColor = false;
@@ -159,7 +164,7 @@
             this.btnReporte.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnReporte.Location = new System.Drawing.Point(371, 304);
+            this.btnReporte.Location = new System.Drawing.Point(368, 236);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(204, 23);
             this.btnReporte.TabIndex = 14;
@@ -174,7 +179,7 @@
             this.groupBox1.Controls.Add(this.btnReporte);
             this.groupBox1.Location = new System.Drawing.Point(205, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(651, 368);
+            this.groupBox1.Size = new System.Drawing.Size(651, 270);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listar Producto";
@@ -198,7 +203,7 @@
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(688, 416);
+            this.button1.Location = new System.Drawing.Point(15, 426);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 23);
             this.button1.TabIndex = 17;
@@ -206,11 +211,28 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(205, 302);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(651, 147);
+            this.chart1.TabIndex = 18;
+            this.chart1.Text = "chart1";
+            // 
             // FrmApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 461);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -226,6 +248,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,6 +268,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

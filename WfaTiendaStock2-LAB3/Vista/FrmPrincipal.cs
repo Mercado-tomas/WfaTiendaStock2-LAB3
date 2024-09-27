@@ -69,5 +69,11 @@ namespace WfaTiendaStock2_LAB3.Interfaces
             FrmBuscarCategoria Ventana = new FrmBuscarCategoria();
             Ventana.ShowDialog();
         }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAgregar frmAgregar = new FrmAgregar();
+            frmAgregar.ShowDialog();
+        }
     }
 }

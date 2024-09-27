@@ -12,7 +12,7 @@ namespace WfaTiendaStock2_LAB3.Clases
 {
     internal class DbCategoria
     {
-        private String CadenaConexión = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\BaseDatos\\Db-TiendStock2.accdb";
+        private String CadenaConexión = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\\Modelado\\Db-TiendStock2.accdb";
         private String tabla = "Categoría";
 
         private OleDbConnection Conexion = new OleDbConnection();

@@ -37,6 +37,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,62 +49,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\DbCategoria.cs" />
-    <Compile Include="Clases\DbProductos.cs" />
-    <Compile Include="Interfaces\FrmAgregar.cs">
+    <Compile Include="Controlador\DbCategoria.cs" />
+    <Compile Include="Controlador\DbProductos.cs" />
+    <Compile Include="Vista\FrmAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\FrmAgregar.Designer.cs">
+    <Compile Include="Vista\FrmAgregar.Designer.cs">
       <DependentUpon>FrmAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\FrmBuscarCategoria.cs">
+    <Compile Include="Vista\FrmBuscarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\FrmBuscarCategoria.Designer.cs">
+    <Compile Include="Vista\FrmBuscarCategoria.Designer.cs">
       <DependentUpon>FrmBuscarCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\FrmEliminar.cs">
+    <Compile Include="Vista\FrmEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\FrmEliminar.Designer.cs">
+    <Compile Include="Vista\FrmEliminar.Designer.cs">
       <DependentUpon>FrmEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\FrmModificar.cs">
+    <Compile Include="Vista\FrmModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\FrmModificar.Designer.cs">
+    <Compile Include="Vista\FrmModificar.Designer.cs">
       <DependentUpon>FrmModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\FrmApp.cs">
+    <Compile Include="Vista\FrmApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\FrmApp.Designer.cs">
+    <Compile Include="Vista\FrmApp.Designer.cs">
       <DependentUpon>FrmApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\FrmPrincipal.cs">
+    <Compile Include="Vista\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaces\FrmPrincipal.Designer.cs">
+    <Compile Include="Vista\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Interfaces\FrmAgregar.resx">
+    <EmbeddedResource Include="Vista\FrmAgregar.resx">
       <DependentUpon>FrmAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\FrmApp.resx">
+    <EmbeddedResource Include="Vista\FrmApp.resx">
       <DependentUpon>FrmApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\FrmBuscarCategoria.resx">
+    <EmbeddedResource Include="Vista\FrmBuscarCategoria.resx">
       <DependentUpon>FrmBuscarCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\FrmEliminar.resx">
+    <EmbeddedResource Include="Vista\FrmEliminar.resx">
       <DependentUpon>FrmEliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\FrmModificar.resx">
+    <EmbeddedResource Include="Vista\FrmModificar.resx">
       <DependentUpon>FrmModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaces\FrmPrincipal.resx">
+    <EmbeddedResource Include="Vista\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -130,7 +131,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BaseDatos\Db-TiendStock2.accdb">
+    <Content Include="Modelado\Db-TiendStock2.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Sistema de inventario.png" />

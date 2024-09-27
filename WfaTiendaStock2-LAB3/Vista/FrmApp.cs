@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WfaTiendaStock2_LAB3
 {
@@ -37,6 +38,29 @@ namespace WfaTiendaStock2_LAB3
             {
                 // si el objeto dtProdcutos tiene datos, se asigna mediante DataSource como fuente de datos al dgv
                 dgvProductos.DataSource = dtProductos;
+                // Limpiar puntos anteriores en el gráfico
+                chart1.Series.Clear();
+
+                // Crear una nueva serie para el gráfico
+                var series = new Series("Productos");
+                series.ChartType = SeriesChartType.Bar; // Tipo de gráfico de barras
+
+                // Llenar el gráfico con datos
+                foreach (DataRow row in dtProductos.Rows)
+                {
+                    string nombreProducto = row["Nombre"].ToString();
+                    decimal precio = Convert.ToDecimal(row["Precio"]);
+                    int stock = Convert.ToInt32(row["Stock"]);
+
+                    // Agregar puntos al gráfico, usando el nombre del producto como etiqueta
+                    series.Points.AddXY(nombreProducto, stock);
+                }
+
+                // Agregar la serie al chart
+                chart1.Series.Add(series);
+                chart1.ChartAreas[0].AxisX.Title = "Productos";
+                chart1.ChartAreas[0].AxisY.Title = "Stock";
+
             }
             else {
                 MessageBox.Show("No hay productos para mostrar!","Error",MessageBoxButtons.OK,MessageBoxIcon.Information);

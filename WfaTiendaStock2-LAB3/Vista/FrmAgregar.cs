@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using WfaTiendaStock2_LAB3.Clases;
 
 namespace WfaTiendaStock2_LAB3
@@ -41,6 +42,28 @@ namespace WfaTiendaStock2_LAB3
             if (dtProductos.Rows.Count > 0)
             {
                 dgvProductos.DataSource = dtProductos;
+                // Limpiar puntos anteriores en el gráfico
+                chart1.Series.Clear();
+
+                // Crear una nueva serie para el gráfico
+                var series = new Series("Productos");
+                series.ChartType = SeriesChartType.Bar; // Tipo de gráfico de barras
+
+                // Llenar el gráfico con datos
+                foreach (DataRow row in dtProductos.Rows)
+                {
+                    string nombreProducto = row["Nombre"].ToString(); // Cambia "Nombre" según tu columna
+                    decimal precio = Convert.ToDecimal(row["Precio"]); // Cambia "Precio" según tu columna
+                    int stock = Convert.ToInt32(row["Stock"]); // Cambia "Stock" según tu columna
+
+                    // Agregar puntos al gráfico, usando el nombre del producto como etiqueta
+                    series.Points.AddXY(nombreProducto, stock); // Puedes usar precio o stock como valor
+                }
+
+                // Agregar la serie al chart
+                chart1.Series.Add(series);
+                chart1.ChartAreas[0].AxisX.Title = "Productos";
+                chart1.ChartAreas[0].AxisY.Title = "Stock";
             }
             else
             {
@@ -92,29 +115,6 @@ namespace WfaTiendaStock2_LAB3
             txtStock.Text = "";
 
         }
-
-            /*   DbProductos dbProductos = new DbProductos();
-               bool carga = dbProductos.AgregarProducto(nombre,descripcion,precio,stock,Convert.ToString(cmbCategoria));
-               if (carga)
-               {
-                   MessageBox.Show("Producto agregado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   VerProductos(); 
-               }
-               else
-               {
-                   MessageBox.Show("No se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               }
-
-               txtNombreProducto.Text = "";
-               txtDescripcion.Text = "";
-               txtPrecio.Text = "";
-               txtStock.Text = "";
-           }*/
-            
-
-
-
-
 
             private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
             {
